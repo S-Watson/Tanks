@@ -25,3 +25,13 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_pressed("Move Down"):
 		position -= movement_direction * move_speed * delta
+		
+ # Get tank's screen position
+	var screen_position = global_position
+
+# Get mouse position relative to the tank
+	var mouse_position = get_global_mouse_position()
+
+# Calculate aim angle
+	var aim_angle = screen_position.angle_to_point(mouse_position)
+	$TankGunSprite.rotation = aim_angle - rotation + PI / 2

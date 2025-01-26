@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvgdt7bjlkooa"]
+[gd_scene load_steps=9 format=3 uid="uid://bvgdt7bjlkooa"]
 
 [ext_resource type="Texture2D" uid="uid://blpwld7hhe0gs" path="res://assets/Tanks/Track_3_A.png" id="1_3siqo"]
 [ext_resource type="Script" path="res://tank.gd" id="1_orm4j"]
 [ext_resource type="Texture2D" uid="uid://bi38cmovo3bxc" path="res://assets/Tanks/Track_3_B.png" id="2_2v0kp"]
+[ext_resource type="Texture2D" uid="uid://bi3bcy2nxm3ly" path="res://assets/Tanks/Gun_01.png" id="4_5m5e1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cx0ni"]
 animations = [{
@@ -32,6 +33,17 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ptvrw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_5m5e1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Scene" type="Node2D"]
 
 [node name="Tank" type="Node2D" parent="."]
@@ -54,3 +66,9 @@ frame_progress = 0.977425
 
 [node name="TankHullSprite" type="AnimatedSprite2D" parent="Tank"]
 sprite_frames = SubResource("SpriteFrames_h241f")
+
+[node name="TankGunSprite" type="AnimatedSprite2D" parent="Tank"]
+position = Vector2(0, 40)
+sprite_frames = SubResource("SpriteFrames_ptvrw")
+centered = false
+offset = Vector2(-47, -155)
