@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvgdt7bjlkooa"]
+
+[ext_resource type="Texture2D" uid="uid://blpwld7hhe0gs" path="res://assets/Tanks/Track_3_A.png" id="1_3siqo"]
+[ext_resource type="Script" path="res://tank.gd" id="1_orm4j"]
+[ext_resource type="Texture2D" uid="uid://bi38cmovo3bxc" path="res://assets/Tanks/Track_3_B.png" id="2_2v0kp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cx0ni"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3siqo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2v0kp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rtt52"]
+load_path = "res://.godot/imported/Hull_01.png-66e7956e1000b15d739877345997ae9f.ctex"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h241f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_rtt52")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Scene" type="Node2D"]
+
+[node name="Tank" type="Node2D" parent="."]
+position = Vector2(100, 100)
+script = ExtResource("1_orm4j")
+
+[node name="TankTracksLeftSprite" type="AnimatedSprite2D" parent="Tank"]
+position = Vector2(-82, 4)
+sprite_frames = SubResource("SpriteFrames_cx0ni")
+frame = 1
+frame_progress = 0.9181
+
+[node name="TankTracksRightSprite" type="AnimatedSprite2D" parent="Tank"]
+position = Vector2(82, 4.00003)
+rotation = -0.00817821
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_cx0ni")
+frame = 1
+frame_progress = 0.977425
+
+[node name="TankHullSprite" type="AnimatedSprite2D" parent="Tank"]
+sprite_frames = SubResource("SpriteFrames_h241f")
