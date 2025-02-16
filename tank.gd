@@ -33,5 +33,17 @@ func _process(delta: float) -> void:
 	var mouse_position = get_global_mouse_position()
 
 	# Calculate aim angle
-	var aim_angle = screen_position.angle_to_point(mouse_position)
-	$TankGunSprite.global_rotation = aim_angle + PI / 2
+	var aim_angle = screen_position.angle_to_point(mouse_position)  + PI / 2
+	$TankGunSprite.global_rotation = aim_angle
+
+	if Input.is_action_just_pressed("Shoot"):
+		# load bullet
+		var bullet_scene = preload("res://bullet.tscn")
+		var bullet = bullet_scene.instantiate()
+		# get position of bullet - move to center of gun then add rotation from there
+		var tank_gun_position = $TankGunSprite.position
+		var turret_tip_offset = Vector2(0, -200).rotated(aim_angle)
+		bullet.position = position + tank_gun_position.rotated(rotation) + turret_tip_offset
+		bullet.rotation = aim_angle
+		# add bullet to scene
+		get_parent().add_child(bullet)

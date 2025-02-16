@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cko5nscsmwrep"]
+
+[ext_resource type="Script" path="res://bullet.gd" id="1_bt6pm"]
+[ext_resource type="Texture2D" uid="uid://ds7mbfm25duar" path="res://assets/Effects/Plasma.png" id="1_eei17"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i0fyh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_eei17")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Bullet" type="Node2D"]
+script = ExtResource("1_bt6pm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_i0fyh")

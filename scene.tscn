@@ -45,6 +45,7 @@ animations = [{
 }]
 
 [node name="Scene" type="Node2D"]
+position = Vector2(645, 367)
 
 [node name="Tank" type="Node2D" parent="."]
 position = Vector2(100, 100)
